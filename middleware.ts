@@ -58,6 +58,25 @@ export default async function middleware(req: NextRequest) {
     );
   }
 
+  console.log(
+    path ===
+      `/ahrefs_9d30ffb7dd11c03ca82855a36dbf1b374a96294d393b3d2f980f55b0cc3af3ac`,
+  );
+  if (
+    path ===
+    `/ahrefs_9d30ffb7dd11c03ca82855a36dbf1b374a96294d393b3d2f980f55b0cc3af3ac`
+  ) {
+    console.log(path);
+    const headers = new Headers();
+    headers.set("Content-Type", "image/*");
+
+    // or just use new Response ❗️
+    return new NextResponse(
+      `ahrefs-site-verification_9d30ffb7dd11c03ca82855a36dbf1b374a96294d393b3d2f980f55b0cc3af3ac`,
+      { status: 200, statusText: "OK", headers },
+    );
+  }
+
   // rewrite root application to `/home` folder
   if (
     hostname === "localhost:3000" ||
